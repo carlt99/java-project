@@ -9,19 +9,21 @@
   <property name="dist.dir" location="dist" />
 
   <path id="class.path">
-    <pathelement location="./lib/junit-4.10.jar" />
+    <!--# <pathelement location="./lib/junit-4.10.jar" /> -->
     <pathelement location="${build.dir}" />
   </path>
 
   <!-- Deletes the existing build, docs and dist directory-->
   <target name="clean">
     <delete dir="${build.dir}" />
+    <delete dir="${docs.dir}" />
     <delete dir="${dist.dir}" />
   </target>
 
   <!-- Creates the  build, docs and dist directory-->
   <target name="makedir">
     <mkdir dir="${build.dir}" />
+    <mkdir dir="${docs.dir}" />
     <mkdir dir="${dist.dir}" />
   </target>
 
@@ -34,7 +36,7 @@
 
   <!--Creates the deployable jar file  -->
   <target name="jar" depends="compile">
-    <jar destfile="${dist.dir}\rectangle_${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar" basedir="${build.dir}">
+    <jar destfile="${dist.dir}\rectangle.jar" basedir="${build.dir}">
       <manifest>
         <attribute name="Main-Class" value="Rectangulator" />
       </manifest>
