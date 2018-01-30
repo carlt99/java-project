@@ -1,16 +1,25 @@
 pipeline {
-  agent any
+  agent {
+	label 'Master'
+  }
   
   stages {
+	stage('build') {
+		steps {
+			sh 'ant -f build.xml -v'
+		}
+	}
+
 	stage('Unit Tests') {
 		steps {
 			sh 'ant -f test.xml -v'
                         junit 'reports/result.xml'
 		}
 	}
-	stage('build') {
+
+	stage('deploy') {
 		steps {
-			sh 'ant -f build.xml -v'
+			sh "cp dist/rectangle_${env.BUILD_NUMBER).jar /var/www/html/rectangles/all"
 		}
 	}
   }
