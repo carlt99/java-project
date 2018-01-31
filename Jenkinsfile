@@ -119,7 +119,7 @@ pipeline {
 			success {
 				emailext(
 					subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Development Promoted to Master",
-					body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Development Promoted to Master":<\p>
+					body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Development Promoted to Master":</p>
 						<p>Check Console Output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
 					to: "carl.thomas@virgin.net"
 				)
@@ -131,7 +131,7 @@ pipeline {
 		failure {
 			emailext(
 				subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!",
-				body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed!":<\p>
+				body: """<p>'${env.JOB_NAME} [${env.BUILD_NUMBER}]' Failed!":</p>
 					<p>Check Console Output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
 				to: "carl.thomas@virgin.net"
 			)
