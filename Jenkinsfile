@@ -99,6 +99,7 @@ pipeline {
 			echo "Merging development into master branch"
 			sh "git merge development"
 			echo "Pushing to origin master "
+		sh "git pull origin master"
 			sh "git push origin master"
 			echo "Taging release"
 			sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}"
