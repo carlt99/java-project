@@ -26,7 +26,7 @@ pipeline {
 		agent any
 
 		steps {
-                        sayHello 'Awesome Student!'
+                        sayHello 'Chunky Student!'
 		}
 	}
 
