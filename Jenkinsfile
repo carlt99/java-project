@@ -22,6 +22,14 @@ pipeline {
   		}
 	}
 
+	stage('Say Hello') {
+		agent any
+
+		steps {
+                        sayHello 'Awesome Student!'
+		}
+	}
+
 	stage('Unit Tests') {
 		agent {
 			label 'Apache'
